@@ -11,7 +11,10 @@ function onFormSubmit(event) {
   event.preventDefault();
 
   let delay = Number(delayValue.value);
-
+  if (delayValue.value < 0 || stepValue.value < 0 || amountValue.value <= 0) {
+    Notiflix.Notify.failure(`Please enter correct value!`);
+    return;
+  }
   for (let i = 1; i <= amountValue.value; i += 1) {
     createPromise(i, delay)
       .then(({ position, delay }) => {
