@@ -74,7 +74,7 @@ function startTimer() {
     const time = convertMs(deltaTime);
     addTimeToPage(time);
     if (timeDiff <= 1000) {
-      clearInterval(intervalId);
+      clearInterval(selectedTime);
     }
   }, 1000);
   start.disabled = true;
