@@ -40,7 +40,6 @@ function convertMs(ms) {
 
 let selectedTime = null;
 let intervalId = null;
-let timeDiff = 0;
 
 const options = {
   enableTime: true,
@@ -73,8 +72,8 @@ function startTimer() {
     const deltaTime = selectedTime - Date.now();
     const time = convertMs(deltaTime);
     addTimeToPage(time);
-    if (timeDiff <= 1000) {
-      clearInterval(selectedTime);
+    if (deltaTime <= 1000) {
+      clearInterval(intervalId);
     }
   }, 1000);
   start.disabled = true;
